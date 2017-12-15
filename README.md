@@ -1,8 +1,8 @@
-Fig
-=====
+Open Bazel BUILD File
+=====================
 
-Fig is a plugin for Sublime Text that opens the related bazel BUILD file for the current open file.
+Open Bazel BUILD File is a plugin for Sublime Text that opens the related bazel BUILD file for the current open file.
 
-Work in progress, will likely have a different name when it's ready to release.
+It's very simple, it looks for a BUILD file in the directory with the open file, then recurses up subdirectories until it find ones, and opens it. It's nice that you can immediately switch back to the formerly open file by using super + t, return.
 
-Initial keymap is ctrl + super + b, but it is not great.
+The keymap is ctrl + super + b, and the command name is `open_build_file`
