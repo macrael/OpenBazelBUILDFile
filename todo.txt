@@ -1,3 +1,17 @@
 Fig
 x it works.
 x publish to package control
+
+
+notes
+x You don't need the shebang (#!/usr/bin/env python3).
+x On the other hand, if this requires Python 3 then it also requires Sublime 3 and should be marked accordingly.
+x The keybinding should be limited only to relevant file types. -- all types are relevent, really
+x The command should have a more specific name to avoid conflicts; e.g., "open_bazel_build_file".
+x You can avoid testing for an active view by making OpenBuildFileCommand a ViewCommand instead of a WindowCommand. (A view should always have a window, but the opposite is not true.)
+	* this doesn't seem to exist...
+	x TextCommand
+x sublime.status_message is undocumented. Use the status_message method of Window instead.
+x It's redundant to test file_path and len(file_path) > 0. For one thing, the empty string is falsy; for another, View.file_name() should return a  file name or None, never an empty string (unless there's some quirk I'm not aware of).
+x Will elif check_directory == os.path.sep work on Windows? ntpath.sep is \, but ntpath.dirname('c:') is c:. I'm not sure if there's a standard  idiom, but what about os.path.dirname(check_directory) == check_directory?
+x You're accepting arbitrary **kwargs, but you're not using them.
