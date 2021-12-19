@@ -3,9 +3,12 @@ import os
 
 
 def _find_build_file(check_directory):
-    check_path = os.path.join(check_directory, 'BUILD')
-    if os.path.isfile(check_path):
-        return check_path
+    check_path_bare = os.path.join(check_directory, 'BUILD')
+    check_path_ext = os.path.join(check_directory, 'BUILD.bazel')
+    if os.path.isfile(check_path_bare):
+        return check_path_bare
+    elif os.path.isfile(check_path_ext):
+        return check_path_ext
     elif os.path.dirname(check_directory) == check_directory:
         return None
     else:
